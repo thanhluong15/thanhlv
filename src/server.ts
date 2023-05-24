@@ -26,7 +26,9 @@ import { filterImageFromURL, deleteLocalFiles } from './util/util';
         if (!err) { 
           deleteLocalFiles([absolutePath]); 
           console.log("File deleted "); 
-        } 
+        } else {
+          res.status(400).send("image not found");
+        }
       }); 
     } catch (e) { 
       return next(e); 
